@@ -11,7 +11,7 @@ Api endpoint : Router.post("/login",.) for login as admin.      //http://localho
 Jwt authentication is used for authenticating the valid user to perform operation
 
 
-<b>Book Crud Operation:</b>
+<b>Book Crud Operation:</b><br>
 Add a new book (title, author, summary):-
 Api endpoint : Router.post("/books",.) for creating a book with the required fields.
 
