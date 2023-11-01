@@ -7,11 +7,11 @@ npm install
 Expreess.Router() used when you want to create a new router object in your program to handle requests.
 Multiple requests can be easily differentiated with the help of the Router() function in Express.
 
-Admin can sign up and login for creating book and do all the operation:-
-Api endpoint : Router.post("/signup",.) for signup as admin.   //http://localhost/admin/signup
+Admin can sign up and login for creating book and do all the operation:-<br>
+Api endpoint : Router.post("/signup",.) for signup as admin.   //http://localhost/admin/signup<br>
 Api endpoint : Router.post("/login",.) for login as admin.      //http://localhost/admin/login
 
-Jwt authentication is used for authenticating the valid user to perform operation
+Jwt authentication is used for authenticating the valid user to perform operation<br>
 
 
 <b>Book Crud Operation:</b><br>
