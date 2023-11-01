@@ -1,4 +1,4 @@
-# Book-Store
+# Book-Crud Application
 <b>written following api endpoints for Book crud operation as well as used authentication</b>
 
 Expreess.Router() used when you want to create a new router object in your program to handle requests.
