@@ -75,7 +75,17 @@ router.post('/signup', (req, res) => {
   router.get('/books/:bookId', authenticateJwt, async (req, res) => {
     const bookId = req.params.bookId;
     const book = await Book.findById(bookId);
-    res.json({ book });
+    try{
+      if(book){
+        res.json({ book });
+        }else{
+          res.status(404).json({ message: `Book with ${bookId} not exist`});
+
+        }
+    }catch(err){
+      res.status(403).json({ message: 'error' });
+
+    }
   });
   router.delete('/books/:id',authenticateJwt,async (req, res) => {
     
