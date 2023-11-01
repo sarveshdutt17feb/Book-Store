@@ -48,19 +48,23 @@ router.post('/signup', (req, res) => {
     }
   });
   
-  router.post('/book', authenticateJwt, async (req, res) => {
+  router.post('/books', authenticateJwt, async (req, res) => {
     const book = new Book(req.body);
     await book.save();
     res.json({ message: 'Book created successfully', bookId: book.id });
   });
   
-  router.put('/book/:bookId', authenticateJwt, async (req, res) => {
+  router.put('/books/:bookId', authenticateJwt, async (req, res) => {
+    try{
     const book = await Book.findByIdAndUpdate(req.params.bookId, req.body, { new: true });
     if (book) {
       res.json({ message: 'Book updated successfully' });
     } else {
       res.status(404).json({ message: 'book not found' });
     }
+  }catch(err){
+    res.status(403).json({ message: 'error' });
+  }
   });
   
   router.get('/books', authenticateJwt, async (req, res) => {
@@ -68,25 +72,24 @@ router.post('/signup', (req, res) => {
     res.json({ books });
   });
   
-  router.get('/book/:bookId', authenticateJwt, async (req, res) => {
+  router.get('/books/:bookId', authenticateJwt, async (req, res) => {
     const bookId = req.params.bookId;
     const book = await Book.findById(bookId);
     res.json({ book });
   });
-  router.delete('/book/:id',authenticateJwt,async (req, res) => {
+  router.delete('/books/:id',authenticateJwt,async (req, res) => {
     
         const bookId = req.params.id;
-        console.log(bookId);
+        
         try{
-            var id = new mongodb.ObjectId(bookId);  
-            // const result = await Book.deleteOne({_id:id});
-            const result = Book.findByIdAndDelete(id);
-                console.log(result);
-                if(result){
-                res.status(200).json({ message: `${result} deleted successfully`});
+            
+            const result = await Book.deleteOne({_id:bookId});
+                
+                if((result.deletedCount)===1){
+                res.status(200).json({ message: `Book with ${bookId} deleted successfully`});
 
                 }else{
-                    res.status(200).json({ message: `${bookId} not found`});
+                    res.status(404).json({ message: `Book with ${bookId} not exist`});
                 }
                
                 
