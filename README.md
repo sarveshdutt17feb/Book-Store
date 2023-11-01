@@ -1,5 +1,5 @@
 # Book-Store
-written following api endpoints for Book crud operation as well as used authentication
+<b>written following api endpoints for Book crud operation as well as used authentication</b>
 
 Expreess.Router() used when you want to create a new router object in your program to handle requests.
 Multiple requests can be easily differentiated with the help of the Router() function in Express.
@@ -11,7 +11,7 @@ Api endpoint : Router.post("/login",.) for login as admin.      //http://localho
 Jwt authentication is used for authenticating the valid user to perform operation
 
 
-<b>Book Crud Operation:<b>
+<b>Book Crud Operation:</b>
 Add a new book (title, author, summary):-
 Api endpoint : Router.post("/books",.) for creating a book with the required fields.
 
