@@ -1,4 +1,4 @@
-# Book-Crud Application
+# Book-Store Backend
 For Project dependecies just write command if node js is installed:
 npm install
 
